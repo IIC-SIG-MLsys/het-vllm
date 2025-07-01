@@ -6,7 +6,7 @@
 TODO：
 - monitor：监控异构资源情况：GPU计算利用率，显存利用率，内存情况
 - policy：负责根据资源情况、网络情况和模型需求情况，生成最优的调度策略
-- scheduler：在
+- scheduler：vllm里的scheduler是调度请求的
     - runner：将模型运行器调度到相应节点，并启动，基于ray actor
 - runner: 基于vllm实现的模型运行器，运行指定层数的模型
 
