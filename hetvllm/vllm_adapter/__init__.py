@@ -12,4 +12,6 @@ elif gpu_type == 'huawei':
     from .ascend import *
 else:
     from vllm.logger import init_logger
-    from vllm.core.scheduler import Scheduler
+    # from vllm.core.scheduler import Scheduler
+    from vllm.engine.async_llm_engine import AsyncLLMEngine, _AsyncLLMEngine
+    from vllm.engine.arg_utils import AsyncEngineArgs

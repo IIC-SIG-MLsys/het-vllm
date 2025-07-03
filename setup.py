@@ -8,10 +8,12 @@ deps = []
 
 if gpu_type == 'nvidia':
     deps.append('torch>=2.7.0')
-    deps.append('vllm>=0.9.0')
+    deps.append('vllm==0.9.1')
+    deps.append('modelscope')
 elif gpu_type == 'amd':
     deps.append('torch>=2.6.0')
     deps.append('vllm>=0.9.0')
+    deps.append('modelscope')
 elif gpu_type == 'hygon':
     # todo
     pass
@@ -25,8 +27,9 @@ elif gpu_type == 'huawei':
     # todo
     pass
 else:
-    deps.append('torch>=2.7.0+cpu')
+    deps.append('torch>=2.7.0')
     deps.append('vllm>=0.9.0')
+    deps.append('modelscope')
 
 setup(
     name='hetvllm',
