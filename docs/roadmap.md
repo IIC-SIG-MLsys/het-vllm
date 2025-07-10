@@ -21,5 +21,12 @@ Todo：
 - zhiseng(ray conntor) + baishuai (rpc)
 
 #### 250710
-1. pp size 是用来索引的？
-2. 规划步骤后，是把request rpc 远程的worker？ ctx存的是future
+TODO：
+- vllm ray不同版本出现适配问题，nvidia,mlu：wangxu，haoyuan
+- qingheng huawei环境排查问题
+- zhiseng，yangshu 1. 异构torch能不能成组（如果依赖nccl的话可能不行，测试寒武纪和英伟达）；2. 设计一个类似flagCX的分层CCL，位置位于hetvllm/transport层
+- baishuai：rpc实现应用到分层CCL的异构节点传输之间
+- guoliang：swiftvllm scheduler外的其余部分
+
+日期：2025-07-10 10:02:22
+会议录制文件：https://meeting.tencent.com/crm/2BjMVEzX70
