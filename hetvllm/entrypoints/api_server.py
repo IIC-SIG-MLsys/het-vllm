@@ -7,6 +7,9 @@ For production use, we recommend using our OpenAI compatible server.
 We are also not going to accept PRs modifying this file, please
 change `vllm/entrypoints/openai/api_server.py` instead.
 """
+from hetvllm.utils import detect_gpu_type
+gpu_type = detect_gpu_type()
+print(f"**************************{gpu_type}*****************************************")
 import asyncio
 import json
 import ssl
@@ -24,13 +27,28 @@ import vllm.envs as envs
 from hetvllm.engine import HetvllmEngineArgs
 from hetvllm.engine import HetvllmEngine
 
-from vllm.entrypoints.launcher import serve_http
-from vllm.entrypoints.utils import with_cancellation
+#from vllm.entrypoints.launcher import serve_http
+
 from vllm.logger import init_logger
 from vllm.sampling_params import SamplingParams
 from vllm.usage.usage_lib import UsageContext
-from vllm.utils import FlexibleArgumentParser, random_uuid, set_ulimit
+from vllm.utils import random_uuid
 from vllm.version import __version__ as VLLM_VERSION
+
+
+if gpu_type == 'cambricon':
+    from hetvllm.vllm_adapter import with_cancellation, serve_http
+    from hetvllm.vllm_adapter import set_ulimit, FlexibleArgumentParser
+else :
+    from vllm.entrypoints.utils import with_cancellation
+    from vllm.entrypoints.launcher import serve_http
+    from vllm.utils import  set_ulimit, FlexibleArgumentParser
+
+# 动态添加属性
+envs.VLLM_HTTP_TIMEOUT_KEEP_ALIVE = 30
+
+# 验证属性是否添加成功
+print(envs.VLLM_HTTP_TIMEOUT_KEEP_ALIVE)  # 输出: 30
 
 logger = init_logger("vllm.entrypoints.api_server")
 

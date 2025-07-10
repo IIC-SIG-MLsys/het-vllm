@@ -14,7 +14,12 @@
 
 ## Meeting Notes: 
 #### 250703
-nvidia haoyuan  0.9.1
-mlu wangxu 官方最新的vllm的容器
-huawei qingheng 官方最新的vllm的容器
-zhiseng(ray conntor) + baishuai (rpc)
+Todo：
+- nvidia haoyuan 0.9.1
+- mlu wangxu 官方最新的vllm的容器
+- huawei qingheng 官方最新的vllm的容器
+- zhiseng(ray conntor) + baishuai (rpc)
+
+#### 250710
+1. pp size 是用来索引的？
+2. 规划步骤后，是把request rpc 远程的worker？ ctx存的是future
