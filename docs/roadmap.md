@@ -30,3 +30,21 @@ TODO：
 
 日期：2025-07-10 10:02:22
 会议录制文件：https://meeting.tencent.com/crm/2BjMVEzX70
+访问密码：SWSY
+
+#### 250717
+TODO:
+- 暂时不考虑寒武纪等老版本vllm，目前以nvidia和amd为目标进行
+- 修改vllm传输层的P2P，以支持pipeline并行
+    - 走UCCL -> 智森（清恒, 杨树）
+    - 走HMC  -> 浩原，王旭 (国梁，白帅)
+        - UCX -> 白帅
+        - python接口完善 —> benchmark
+    - vllm p2p 层 -> 智森（清恒，白帅）
+        - 代码框架，有个alltoall行为，确认有没有影响
+- 华为环境 搁置，后续再说
+- swiftLLM 国梁
+
+日期：2025-07-17 09:59:07
+录制文件：https://meeting.tencent.com/crm/2YQnVqnRb2
+访问密码：1234
